@@ -1,19 +1,16 @@
+<script setup lang="ts">
+const menu = useMenu()
+</script>
+
 <template>
    <footer class="bg-black text-white">
-      <div class="container py-32">
+      <div class="container pt-32 pb-8">
          <div class="flex items-center gap-12 justify-between *:flex-1">
             <ul class="list-none [&_li:not(:last-child)]:mb-4">
-               <li>
-                  Portfolio
-               </li>
-               <li>
-                  Office
-               </li>
-               <li>
-                  Research
-               </li>
-               <li>
-                  Contact
+               <li v-for="item in menu">
+                  <NuxtLink :to="item.to">
+                     {{ item.label }}
+                  </NuxtLink>
                </li>
             </ul>
             <div class="flex items-center justify-center flex-col">
@@ -40,6 +37,11 @@
                   @almsomnia
                </li>
             </ul>
+         </div>
+         <div class="mt-48 text-center">
+            <span class="text-sm">
+               &copy; 2025 Riva Almero. All Rights Reserved.
+            </span>
          </div>
       </div>
    </footer>

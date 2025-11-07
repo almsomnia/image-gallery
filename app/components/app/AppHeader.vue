@@ -1,22 +1,25 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const menu = useMenu()
+</script>
 
 <template>
-   <header class="fixed top-0 inset-x-0 w-full bg-transparent h-24">
-      <div class="flex items-center container h-full justify-between">
-         <NuxtImg
-            src="/img/logo-black.svg"
-            quality="50"
-            width="48"
-            height="48"
-         />
-         <!-- <span class="font-display text-xl uppercase tracking-widest">
-         </span> -->
+   <header class="fixed inset-x-0 top-0 h-24 w-full bg-transparent">
+      <div class="container flex h-full items-center justify-between">
+         <NuxtLink to="/">
+            <NuxtImg
+               src="/img/logo-black.svg"
+               quality="50"
+               width="48"
+               height="48"
+            />
+         </NuxtLink>
          <nav>
             <ul class="flex items-center [&_li]:not-last:me-16">
-               <li>Portfolio</li>
-               <li>Office</li>
-               <li>Research</li>
-               <li>Contact</li>
+               <li v-for="item in menu">
+                  <NuxtLink :to="item.to">
+                     {{ item.label }}
+                  </NuxtLink>
+               </li>
             </ul>
          </nav>
       </div>
