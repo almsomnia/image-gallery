@@ -14,4 +14,14 @@ export const $images = [
       location: "Portland, ME",
       src: "/img/house-3.jpg"
    },
+   {
+      title: "Elsworth",
+      location: "Ontario, Canada",
+      src: "/img/house-4.jpg"
+   },
+   {
+      title: "The Old Rectory",
+      location: "Brewster, NE",
+      src: "/img/house-5.jpg"
+   }
 ]
