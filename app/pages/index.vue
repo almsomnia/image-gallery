@@ -86,7 +86,7 @@ function resolveTextOpacity(index: number) {
       case 0:
          return 1
       case 1:
-         return 0.4
+         return 0.25
       case 2:
          return 0.1
       default:
@@ -150,5 +150,4 @@ function resolveTextOpacity(index: number) {
          </template>
       </div>
    </div>
-   <AppQuickLink />
 </template>

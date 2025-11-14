@@ -1,10 +1,6 @@
 <script setup lang="ts">
 const { y, directions } = useScroll(document)
 
-// const lenis = useLenis((lenis) => {
-//    console.log(lenis.progress)
-// })
-
 const header = useTemplateRef("header")
 
 watch(
@@ -33,6 +29,7 @@ watch(
          <div class="pt-40">
             <slot />
          </div>
+         <AppQuickLink />
       </main>
       <AppFooter />
    </VueLenis>
