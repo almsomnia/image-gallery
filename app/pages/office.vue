@@ -69,20 +69,6 @@ const offerings = [
 
 const activeOfferingIndex = shallowRef<number>(0)
 
-function resolveTextOpacity(index: number) {
-   const diff = Math.abs(activeOfferingIndex.value - index)
-   switch (diff) {
-      case 0:
-         return 1
-      case 1:
-         return 0.25
-      case 2:
-         return 0.1
-      default:
-         return 0
-   }
-}
-
 const faqs = [
    {
       title: "Lorem ipsum dolor sit amet?",
@@ -155,10 +141,10 @@ const faqs = [
             <div class="h-full w-[35%]">
                <span
                   v-for="(offering, index) in offerings"
-                  class="absolute top-1/2 font-display text-[5vw] tracking-normal whitespace-nowrap transition duration-800 ease-out"
+                  class="absolute top-1/2 font-display text-[5vw] tracking-normal whitespace-nowrap transition duration-800 ease-out cursor-pointer"
                   :style="{
                      transform: `translateY(calc(-50% + ${index} * 6vw - ${activeOfferingIndex} * 6vw))`,
-                     opacity: resolveTextOpacity(index),
+                     opacity: resolveTextOpacity(activeOfferingIndex, index),
                   }"
                   @click="activeOfferingIndex = index"
                >
@@ -199,16 +185,21 @@ const faqs = [
                   <span class="heroicons--chevron-right size-6" />
                </div>
             </div>
+            <div class="absolute end-0 bottom-0 h-0.5 w-[55%] bg-black/15">
+               <div
+                  class="h-0.5 bg-black transition-transform duration-300 ease-out"
+                  :style="{
+                     width: `calc(100% / ${offerings.length})`,
+                     transform: `translateX(${activeOfferingIndex * 100}%)`,
+                  }"
+               ></div>
+            </div>
          </div>
       </div>
    </div>
    <div class="container py-32">
-      <h2
-         class="mb-8 font-display text-7xl tracking-wide"
-      >
-         FAQ
-      </h2>
-      <div class=" w-[33vw]">
+      <h2 class="mb-8 font-display text-7xl tracking-wide">FAQ</h2>
+      <div class="w-[33vw]">
          <div class="flex flex-col">
             <template v-for="faq in faqs">
                <details class="group overflow-hidden border-b">
