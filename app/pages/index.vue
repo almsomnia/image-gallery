@@ -79,6 +79,20 @@ const handleScroll = (lenis: Lenis) => {
 const lenis = useLenis((lenis) => {
    handleScroll(lenis)
 })
+
+function resolveTextOpacity(index: number) {
+   const diff = Math.abs(activeIndex.value - index)
+   switch (diff) {
+      case 0:
+         return 1
+      case 1:
+         return 0.4
+      case 2:
+         return 0.1
+      default:
+         return 0
+   }
+}
 </script>
 
 <template>
@@ -99,7 +113,7 @@ const lenis = useLenis((lenis) => {
                   :ref="(el) => (imageTitleRefs[index] = el as HTMLDivElement)"
                   class="absolute font-display text-[4.5vw] tracking-normal whitespace-nowrap transition duration-800 ease-out"
                   :style="{
-                     opacity: activeIndex == index ? 1 : 0.1,
+                     opacity: resolveTextOpacity(index),
                      top: `calc(50% + (1.2 * 4.5vw * ${index}))`,
                   }"
                >
@@ -136,5 +150,5 @@ const lenis = useLenis((lenis) => {
          </template>
       </div>
    </div>
-  <AppQuickLink />
+   <AppQuickLink />
 </template>
