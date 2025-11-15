@@ -1,5 +1,10 @@
 <script setup lang="ts">
-
+useHead({
+   titleTemplate: (chunk) => {
+      const title = "Dummy Architecture Gallery"
+      return (chunk && `${chunk} | ${title}`) || `${title}`
+   },
+})
 </script>
 
 <template>
