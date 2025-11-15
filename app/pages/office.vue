@@ -98,7 +98,7 @@ const faqs = [
       <div class="container mb-12">
          <h1
             id="title"
-            class="font-display text-7xl tracking-wide"
+            class="font-display text-5xl md:text-7xl tracking-wide"
          >
             Office
          </h1>
