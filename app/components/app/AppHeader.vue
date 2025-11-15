@@ -1,5 +1,9 @@
 <script setup lang="ts">
 const menu = useMenu()
+const mobileMenu = defineModel<boolean>("mobileMenu", {
+   required: false,
+   default: false,
+})
 </script>
 
 <template>
@@ -13,7 +17,7 @@ const menu = useMenu()
                height="48"
             />
          </NuxtLink>
-         <nav>
+         <nav class="hidden md:block">
             <ul class="flex items-center [&_li]:not-last:me-16">
                <li v-for="item in menu">
                   <NuxtLink :to="item.to">
@@ -22,6 +26,12 @@ const menu = useMenu()
                </li>
             </ul>
          </nav>
+         <button
+            class="block md:hidden py-2 font-medium"
+            @click="mobileMenu = !mobileMenu"
+         >
+            Menu
+         </button>
       </div>
    </header>
 </template>

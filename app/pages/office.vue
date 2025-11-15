@@ -103,7 +103,7 @@ const faqs = [
             Office
          </h1>
       </div>
-      <div class="relative h-[35vw] overflow-hidden">
+      <div class="relative h-[60vh] lg:h-[35vw] overflow-hidden">
          <NuxtImg
             id="officeHero"
             src="/img/office.jpg"
@@ -117,7 +117,7 @@ const faqs = [
    <div class="container py-32">
       <h2 class="font-medium">About</h2>
       <p
-         class="my-8 w-4/5 font-display text-4xl leading-relaxed tracking-wide text-pretty"
+         class="my-8 w-full md:w-4/5 font-display text-2xl md:text-4xl leading-relaxed tracking-wide text-pretty"
       >
          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima illum
          nobis, libero voluptatibus optio natus assumenda vero asperiores vitae,
@@ -125,7 +125,7 @@ const faqs = [
          recusandae alias harum!
       </p>
       <div
-         class="mt-48 ml-auto w-fit max-w-3/5 text-3xl leading-normal font-extralight text-pretty italic"
+         class="mt-36 md:mt-48 ml-auto w-fit md:max-w-3/5 text-xl md:text-3xl leading-normal font-extralight text-pretty italic"
       >
          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse
          consequuntur, placeat dolorem praesentium ea sunt quam tempore sequi
@@ -134,11 +134,11 @@ const faqs = [
       </div>
    </div>
    <div class="container py-32">
-      <div class="relative h-[33vw]">
+      <div class="relative h-[40vh] lg:h-[33vw]">
          <div
-            class="absolute top-0 left-0 flex h-full w-full items-center justify-between"
+            class="absolute top-0 left-0 flex flex-col lg:flex-row h-full w-full items-center justify-between"
          >
-            <div class="h-full w-[35%]">
+            <div class="h-full w-[35%] hidden lg:block">
                <span
                   v-for="(offering, index) in offerings"
                   class="absolute top-1/2 font-display text-[5vw] tracking-normal whitespace-nowrap transition duration-800 ease-out cursor-pointer"
@@ -151,8 +151,11 @@ const faqs = [
                   {{ offering.title }}
                </span>
             </div>
-            <div class="relative h-full w-[40%]">
+            <div class="relative h-full w-full lg:w-[40%]">
                <div class="absolute top-1/2 -translate-y-1/2">
+                  <span class="block lg:hidden font-display font-medium text-xl">
+                     {{ offerings[activeOfferingIndex]?.title }}
+                  </span>
                   <p class="my-8 text-pretty">
                      {{ offerings[activeOfferingIndex]?.description }}
                   </p>
@@ -185,7 +188,7 @@ const faqs = [
                   <span class="heroicons--chevron-right size-6" />
                </div>
             </div>
-            <div class="absolute end-0 bottom-0 h-0.5 w-[55%] bg-black/15">
+            <div class="absolute end-0 bottom-0 h-0.5 w-[55%] bg-black/15 hidden lg:block">
                <div
                   class="h-0.5 bg-black transition-transform duration-300 ease-out"
                   :style="{
@@ -198,8 +201,8 @@ const faqs = [
       </div>
    </div>
    <div class="container py-32">
-      <h2 class="mb-8 font-display text-7xl tracking-wide">FAQ</h2>
-      <div class="w-[33vw]">
+      <h2 class="mb-8 font-display text-5xl lg:text-7xl tracking-wide">FAQ</h2>
+      <div class="w-full lg:w-3/4 xl:w-[33vw]">
          <div class="flex flex-col">
             <template v-for="faq in faqs">
                <details class="group overflow-hidden border-b">

@@ -85,7 +85,7 @@ const lenis = useLenis((lenis) => {
    <div class="container flex items-stretch justify-between gap-4">
       <div
          id="imgTitleContainer"
-         class="w-2/5"
+         class="w-2/5 hidden lg:block"
       >
          <div
             class="sticky top-[calc((100vh-30vw)/2)] mb-[100px] h-[30vw] transition-transform duration-800 ease-out"
@@ -110,7 +110,7 @@ const lenis = useLenis((lenis) => {
       </div>
       <div
          id="imgContainer"
-         class="w-3/5 [&_.x-img-container]:mb-24"
+         class="w-full lg:w-3/5 [&_.x-img-container]:mb-24"
       >
          <template v-for="(image, index) in images">
             <div class="x-img-container flex flex-col gap-2">
@@ -121,6 +121,7 @@ const lenis = useLenis((lenis) => {
                   <NuxtImg
                      :src="image.src"
                      :quality="25"
+                     decoding="async"
                      class="absolute inset-0 transition-transform duration-500 ease-in-out hover:scale-102"
                   />
                </div>

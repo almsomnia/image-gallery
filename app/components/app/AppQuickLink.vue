@@ -7,7 +7,7 @@ const menu = computed(() => {
 
 <template>
    <div class="container flex items-stretch justify-end">
-      <div class="flex w-3/5 items-center gap-8 py-40">
+      <div class="flex flex-col md:flex-row w-full xl:w-3/5 items-center gap-8 py-40">
          <div v-for="item in menu" class="flex-1">
             <h2 class="border-b font-display text-5xl tracking-wide">
                <NuxtLink

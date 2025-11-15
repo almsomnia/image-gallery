@@ -5,7 +5,7 @@ const menu = useMenu()
 <template>
    <footer class="bg-black text-white">
       <div class="container pt-32 pb-8">
-         <div class="flex items-center gap-12 justify-between *:flex-1">
+         <div class="flex flex-col lg:flex-row lg:items-center gap-36 lg:gap-12 justify-between *:flex-1">
             <ul class="list-none [&_li:not(:last-child)]:mb-4">
                <li v-for="item in menu">
                   <NuxtLink :to="item.to">
