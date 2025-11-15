@@ -1,8 +1,5 @@
 <script setup lang="ts">
-const menu = computed(() => {
-   const _menu = useMenu()
-   return _menu.value.filter((item) => item.to !== "/")
-})
+const menu = useMenu()
 </script>
 
 <template>
